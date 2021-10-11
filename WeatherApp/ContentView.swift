@@ -18,7 +18,8 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            List {
+            WeatherView()
+            /*List {
                 ForEach(items) { item in
                     NavigationLink {
                         Text("Item at \(item.timestamp!, formatter: itemFormatter)")
@@ -38,7 +39,7 @@ struct ContentView: View {
                     }
                 }
             }
-            Text("Select an item")
+            Text("Select an item")*/
         }
     }
 
