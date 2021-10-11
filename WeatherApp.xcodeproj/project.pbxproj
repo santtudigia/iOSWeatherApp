@@ -27,6 +27,8 @@
 		57102CD2271446FE0008CCB8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57102CD1271446FE0008CCB8 /* Constants.swift */; };
 		57102CD42714520B0008CCB8 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57102CD32714520B0008CCB8 /* WeatherView.swift */; };
 		57102CD9271462870008CCB8 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57102CD8271462870008CCB8 /* StringExtensions.swift */; };
+		57102CDB271464850008CCB8 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57102CDA271464850008CCB8 /* ViewExtensions.swift */; };
+		57102CE027146CCA0008CCB8 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57102CDF27146CCA0008CCB8 /* HistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		57102CD627145A840008CCB8 /* api_credentials.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = api_credentials.xcconfig; sourceTree = "<group>"; };
 		57102CD727145D510008CCB8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		57102CD8271462870008CCB8 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		57102CDA271464850008CCB8 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		57102CDF27146CCA0008CCB8 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +174,7 @@
 			children = (
 				57102CBE2714391A0008CCB8 /* WeatherCard.swift */,
 				57102CD32714520B0008CCB8 /* WeatherView.swift */,
+				57102CDF27146CCA0008CCB8 /* HistoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 				57102CC82714400E0008CCB8 /* DoubleExtensions.swift */,
 				57102CCD271442CB0008CCB8 /* APIExtensions.swift */,
 				57102CD8271462870008CCB8 /* StringExtensions.swift */,
+				57102CDA271464850008CCB8 /* ViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -344,10 +350,12 @@
 				57102CCC271442650008CCB8 /* CityWeatherRequest.swift in Sources */,
 				57102CD2271446FE0008CCB8 /* Constants.swift in Sources */,
 				57102C8427142BF70008CCB8 /* ContentView.swift in Sources */,
+				57102CDB271464850008CCB8 /* ViewExtensions.swift in Sources */,
 				57102CBF2714391A0008CCB8 /* WeatherCard.swift in Sources */,
 				57102CC2271439420008CCB8 /* Weather.swift in Sources */,
 				57102CD9271462870008CCB8 /* StringExtensions.swift in Sources */,
 				57102CD0271443B50008CCB8 /* APIRequest.swift in Sources */,
+				57102CE027146CCA0008CCB8 /* HistoryView.swift in Sources */,
 				57102C8227142BF70008CCB8 /* WeatherApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

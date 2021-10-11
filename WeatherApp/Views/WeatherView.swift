@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct WeatherView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
     @State private var weatherResponse : CityWeatherResponse? = nil
     @State private var errorMessage : String? = nil
     
@@ -21,8 +24,8 @@ struct WeatherView: View {
                 
                 Button(
                     action: {
-                        fetchWeather()
-                        
+                        self.endTextEditing()
+                        fetchWeather(location: location)
                     })
                 {
                     Image(systemName: "magnifyingglass")
@@ -40,26 +43,46 @@ struct WeatherView: View {
                     Text(errorMessage!)
                 }
             }
-        }.onAppear() {
-            //fetchWeather()
-        }.padding()
+        }
+        .padding()
+        .onTapGesture {
+            self.endTextEditing()
+        }
     }
     
-    func fetchWeather() {
+    func fetchWeather(location : String) {
         CityWeatherRequest(q: location, appid: Constants.API_KEY, units: "metric")
             .dispatch(onSuccess: {(successResponse) in
                 weatherResponse = successResponse
+                
+                addToHistory(location: location)
             }, onFailure: { (errorResponse, error) in
                 print(location.formatToAPI())
                 print("Error fetching the weather")
                 print(error)
                 errorMessage = "Error"
-            })
+            }) 
+    }
+    
+    func addToHistory(location : String) {
+        let locationHistory = LocationHistory(context: viewContext)
+        locationHistory.location = location
+        locationHistory.timestamp = Date()
+        
+        do {
+            try viewContext.save()
+        }  catch {
+            print("Error saving location history")
+        }
     }
 }
 
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
         WeatherView()
+            .environment(
+                \.managedObjectContext,
+                 PersistenceController.preview.container.viewContext
+            )
     }
 }
