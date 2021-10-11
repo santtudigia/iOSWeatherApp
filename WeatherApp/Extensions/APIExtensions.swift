@@ -14,7 +14,7 @@ extension CityWeatherRequest : APIEndpoint {
     }
     
     func params() -> String {
-        return "?q=\(self.q)&appid=\(self.appid)&units=\(self.units)"
+        return "?q=\(self.q.formatToAPI())&appid=\(self.appid)&units=\(self.units)"
     }
     
     func dispatch(
