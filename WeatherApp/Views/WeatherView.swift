@@ -29,7 +29,7 @@ struct WeatherView: View {
     }
     
     func fetchWeather() {
-        CityWeatherRequest(q: "Vantaa", appid: "", units: "metric")
+        CityWeatherRequest(q: "Vantaa", appid: Constants.API_KEY, units: "metric")
             .dispatch(onSuccess: {(successResponse) in
                 weatherResponse = successResponse
             }, onFailure: { (errorResponse, error) in

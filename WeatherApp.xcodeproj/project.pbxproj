@@ -69,6 +69,8 @@
 		57102CD1271446FE0008CCB8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		57102CD32714520B0008CCB8 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		57102CD5271456E50008CCB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		57102CD627145A840008CCB8 /* api_credentials.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = api_credentials.xcconfig; sourceTree = "<group>"; };
+		57102CD727145D510008CCB8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,8 @@
 		57102C7527142BF70008CCB8 = {
 			isa = PBXGroup;
 			children = (
+				57102CD727145D510008CCB8 /* README.md */,
+				57102CD627145A840008CCB8 /* api_credentials.xcconfig */,
 				57102C8027142BF70008CCB8 /* WeatherApp */,
 				57102C9627142BFA0008CCB8 /* WeatherAppTests */,
 				57102CA027142BFA0008CCB8 /* WeatherAppUITests */,
@@ -379,6 +383,7 @@
 /* Begin XCBuildConfiguration section */
 		57102CA527142BFA0008CCB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57102CD627145A840008CCB8 /* api_credentials.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -440,6 +445,7 @@
 		};
 		57102CA627142BFA0008CCB8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57102CD627145A840008CCB8 /* api_credentials.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -495,6 +501,7 @@
 		};
 		57102CA827142BFA0008CCB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57102CD627145A840008CCB8 /* api_credentials.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -526,6 +533,7 @@
 		};
 		57102CA927142BFA0008CCB8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57102CD627145A840008CCB8 /* api_credentials.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
