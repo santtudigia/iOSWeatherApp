@@ -14,12 +14,9 @@ struct HistoryRow: View {
         let location = history.location ?? ""
         
         VStack(alignment: .leading, spacing: 10) {
-            Text(location)
-                .font(.headline)
-            
             HStack {
-                Text("\(history.temperature.formatDigits(digits: 1))°C")
-                    .bold()
+                Text(location)
+                    .font(.headline)
                 Spacer()
                 Text("\(history.timestamp!, formatter: itemFormatter)")
             }

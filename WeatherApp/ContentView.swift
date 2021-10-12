@@ -29,6 +29,12 @@ struct ContentView: View {
                 .tabItem {
                     Label("history".localize(), systemImage: "clock")
                 }
+            
+            SettingsView()
+                .tag(Tabs.settings)
+                .tabItem {
+                    Label("settings".localize(), systemImage: "gear")
+                }
                     
         }
         .accentColor(.red)

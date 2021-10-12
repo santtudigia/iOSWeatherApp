@@ -38,6 +38,8 @@
 		5777CFD327157A2D00BB7995 /* WeatherIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777CFD227157A2D00BB7995 /* WeatherIcons.swift */; };
 		5777CFE62715A0C800BB7995 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5777CFE82715A0C800BB7995 /* Localizable.strings */; };
 		5777CFEC2715A2A500BB7995 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5777CFEE2715A2A500BB7995 /* InfoPlist.strings */; };
+		5777CFF12715A55000BB7995 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777CFF02715A55000BB7995 /* SettingsView.swift */; };
+		5777CFF32715A5AC00BB7995 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777CFF22715A5AC00BB7995 /* Units.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,8 @@
 		5777CFE92715A0CA00BB7995 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5777CFED2715A2A500BB7995 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5777CFEF2715A2A600BB7995 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5777CFF02715A55000BB7995 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		5777CFF22715A5AC00BB7995 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +202,7 @@
 				57102CD32714520B0008CCB8 /* WeatherView.swift */,
 				57102CDF27146CCA0008CCB8 /* HistoryView.swift */,
 				5777CFCA2715610000BB7995 /* HistoryRow.swift */,
+				5777CFF02715A55000BB7995 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 			children = (
 				5777CFC727155C1C00BB7995 /* Tabs.swift */,
 				5777CFD227157A2D00BB7995 /* WeatherIcons.swift */,
+				5777CFF22715A5AC00BB7995 /* Units.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -397,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57102C8E27142BFA0008CCB8 /* WeatherApp.xcdatamodeld in Sources */,
+				5777CFF32715A5AC00BB7995 /* Units.swift in Sources */,
 				5777CFD12715718B00BB7995 /* CoordinationWeatherRequest.swift in Sources */,
 				57102C8B27142BFA0008CCB8 /* Persistence.swift in Sources */,
 				57102CC627143A9F0008CCB8 /* Main.swift in Sources */,
@@ -411,6 +418,7 @@
 				57102CD2271446FE0008CCB8 /* Constants.swift in Sources */,
 				57102C8427142BF70008CCB8 /* ContentView.swift in Sources */,
 				57102CDB271464850008CCB8 /* ViewExtensions.swift in Sources */,
+				5777CFF12715A55000BB7995 /* SettingsView.swift in Sources */,
 				5777CFC527155ABE00BB7995 /* NavigationArgs.swift in Sources */,
 				57102CBF2714391A0008CCB8 /* WeatherCard.swift in Sources */,
 				5777CFD327157A2D00BB7995 /* WeatherIcons.swift in Sources */,

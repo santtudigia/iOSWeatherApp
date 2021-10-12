@@ -91,7 +91,7 @@ struct WeatherView: View {
     }
     
     func fetchWeather(location : String) {
-        CityWeatherRequest(q: location, appid: Constants.API_KEY, units: "metric")
+        CityWeatherRequest(q: location, appid: Constants.API_KEY, units: getUnits())
             .dispatch(onSuccess: {(successResponse) in
                 weatherResponse = successResponse
                 
@@ -111,7 +111,7 @@ struct WeatherView: View {
         let lon = locationManager.lastLocation?.coordinate.longitude ?? nil
         
         if(lat != nil && lon != nil) {
-            CoordinateWeatherRequest(lat: String(lat!), lon : String(lon!), appid: Constants.API_KEY, units: "metric")
+            CoordinateWeatherRequest(lat: String(lat!), lon : String(lon!), appid: Constants.API_KEY, units: getUnits())
                 .dispatch(onSuccess: {(successResponse) in
                     weatherResponse = successResponse
                     
@@ -123,6 +123,15 @@ struct WeatherView: View {
                     errorMessage = "Error"
                 })
         }
+    }
+    
+    func getUnits() -> String {
+        let defaults = UserDefaults.standard
+        if let result = defaults.string(forKey: "units") {
+            return result
+        }
+        
+        return Units.metric.rawValue
     }
     
     func addToHistory(weatherResponse : CityWeatherResponse) {

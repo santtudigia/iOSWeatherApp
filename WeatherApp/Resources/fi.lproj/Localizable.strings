@@ -17,3 +17,10 @@
 "pressure" = "Paine";
 "humidity" = "Kosteus";
 
+//Settings
+"units" = "Lämpötilan mittayksikkö";
+"settings" = "Asetukset";
+
+"metric" = "Celsius °C";
+"standard" = "Kelvin K";
+"imperial" = "Fahrenheit °F";

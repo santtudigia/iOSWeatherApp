@@ -17,3 +17,11 @@
 "temperature" = "Temperature";
 "pressure" = "Pressure";
 "humidity" = "Humidity";
+
+//Settings
+"units" = "Temperature units";
+"settings" = "Settings";
+
+"metric" = "Celsius °C";
+"standard" = "Kelvin K";
+"imperial" = "Fahrenheit °F";

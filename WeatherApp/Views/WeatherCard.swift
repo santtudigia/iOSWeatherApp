@@ -25,7 +25,7 @@ struct WeatherCard: View {
                 Text("\("temperature".localize()): ")
                     .font(.subheadline)
                 Spacer()
-                Text("\(cityWeatherResponse.main.temp.formatDigits(digits: 1))°C")
+                Text("\(cityWeatherResponse.main.temp.toTemperature())")
             }
             
             HStack {
