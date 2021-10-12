@@ -35,6 +35,7 @@
 		5777CFCD27156A8F00BB7995 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777CFCC27156A8F00BB7995 /* LocationModel.swift */; };
 		5777CFCF27156FD200BB7995 /* Coords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777CFCE27156FD200BB7995 /* Coords.swift */; };
 		5777CFD12715718B00BB7995 /* CoordinationWeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777CFD02715718B00BB7995 /* CoordinationWeatherRequest.swift */; };
+		5777CFD327157A2D00BB7995 /* WeatherIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777CFD227157A2D00BB7995 /* WeatherIcons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		5777CFCC27156A8F00BB7995 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		5777CFCE27156FD200BB7995 /* Coords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coords.swift; sourceTree = "<group>"; };
 		5777CFD02715718B00BB7995 /* CoordinationWeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinationWeatherRequest.swift; sourceTree = "<group>"; };
+		5777CFD227157A2D00BB7995 /* WeatherIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIcons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				5777CFC727155C1C00BB7995 /* Tabs.swift */,
+				5777CFD227157A2D00BB7995 /* WeatherIcons.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				57102CDB271464850008CCB8 /* ViewExtensions.swift in Sources */,
 				5777CFC527155ABE00BB7995 /* NavigationArgs.swift in Sources */,
 				57102CBF2714391A0008CCB8 /* WeatherCard.swift in Sources */,
+				5777CFD327157A2D00BB7995 /* WeatherIcons.swift in Sources */,
 				57102CC2271439420008CCB8 /* Weather.swift in Sources */,
 				57102CD9271462870008CCB8 /* StringExtensions.swift in Sources */,
 				57102CD0271443B50008CCB8 /* APIRequest.swift in Sources */,

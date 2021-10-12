@@ -13,7 +13,7 @@ struct WeatherCard: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image(systemName: "sun.min")
+                Image(systemName: getWeatherIcon(icon: cityWeatherResponse.weather[0].icon))
                     
                 Text(cityWeatherResponse.name)
                     .font(.title)
@@ -49,6 +49,47 @@ struct WeatherCard: View {
             }
         }
     }
+    
+    func getWeatherIcon(icon : String) -> String {
+        let result = String(icon.dropLast())
+        let weatherIcon = WeatherIcon(rawValue: result)
+        
+        if(weatherIcon == nil) {
+            return "questionmark"
+        }
+        
+        print(weatherIcon!)
+        
+        switch(weatherIcon!){
+            
+            case WeatherIcon.broken_clouds:
+                return "cloud"
+            
+            case WeatherIcon.cloudy:
+                return "cloud"
+            
+            case WeatherIcon.few_clouds:
+                return "cloud.sun"
+            
+            case WeatherIcon.clear:
+                return "sun.min"
+            
+            case WeatherIcon.shower:
+                return "cloud.sun.rain"
+            
+            case WeatherIcon.rain:
+                return "cloud.rain"
+            
+            case WeatherIcon.snow:
+                return "cloud.snow"
+            
+            case WeatherIcon.thunder:
+                return "cloud.bolt.rain"
+            
+            case WeatherIcon.mist:
+                return "cloud.fog"
+        }
+    }
 }
 
 struct WeatherCard_Previews: PreviewProvider {
@@ -60,7 +101,7 @@ struct WeatherCard_Previews: PreviewProvider {
                 id: 1,
                 main: "Cloudy",
                 description: "",
-                icon: ""
+                icon: "01d"
             )
         ],
         main : Main(
