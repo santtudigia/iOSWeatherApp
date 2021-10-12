@@ -47,7 +47,7 @@ struct WeatherCard: View {
             ForEach(cityWeatherResponse.weather) { weather in
                     Text(weather.main)
             }
-        }.padding()
+        }
     }
 }
 
@@ -67,6 +67,10 @@ struct WeatherCard_Previews: PreviewProvider {
             temp: 12.3,
             pressure: 1220,
             humidity: 120
+        ),
+        coord: Coords(
+            lat: 23.1234,
+            lon: 64.1234
         )
     )
     static var previews: some View {

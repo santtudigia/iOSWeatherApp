@@ -29,6 +29,28 @@ extension CityWeatherRequest : APIEndpoint {
         }
 }
 
+extension CoordinateWeatherRequest : APIEndpoint {
+    
+    func endpoint() -> String {
+        return "/data/2.5/weather"
+    }
+    
+    func params() -> String {
+        return "?lat=\(self.lat)&lon=\(self.lon)&appid=\(self.appid)&units=\(self.units)"
+    }
+    
+    func dispatch(
+        onSuccess successHandler: @escaping ((_: CityWeatherResponse) -> Void),
+        onFailure failureHandler: @escaping ((_: APIRequest.ErrorResponse?, _: Error) -> Void)) {
+            
+            APIRequest.get (
+                request: self,
+                onSuccess: successHandler,
+                onError : failureHandler
+            )
+        }
+}
+
 extension APIRequest {
     public static func get<R: Codable & APIEndpoint, T: Codable, E: Codable>(
         request: R,

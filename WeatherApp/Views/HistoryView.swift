@@ -23,28 +23,19 @@ struct HistoryView: View {
     var body: some View {
         ScrollView {
             ForEach(locationHistory) { history in
-                HStack {
-                    Text(history.location!)
-                    Spacer()
-                    Text("\(history.timestamp!, formatter: itemFormatter)")
-                }
-                .padding()
-                .onTapGesture {
+                Button(action: {
                     navigationArgs.searchLocation = history.location!
                     selection = Tabs.weather
+                }) {
+                    HistoryRow(history: history)
                 }
+                .padding()
                 
                 Divider()
             }
+            .accentColor(Color.gray)
         }
     }
-    
-    private let itemFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .medium
-        return formatter
-    }()
 }
 
 struct HistoryView_Previews: PreviewProvider {

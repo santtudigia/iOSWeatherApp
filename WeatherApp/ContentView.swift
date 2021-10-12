@@ -22,21 +22,14 @@ struct ContentView: View {
                 .tabItem {
                     Label("Weather", systemImage: "sun.min")
                 }
-                .toolbar {
-                    /*ToolbarItem {
-                        Button(action: {
-                            showingHistory.toggle()
-                        }) {
-                            Label("History", systemImage: "clock")
-                        }
-                    }*/
-                }
+
+
             HistoryView(selection: $selection)
                 .tag(Tabs.history)
                 .tabItem {
                     Label("History", systemImage: "clock")
                 }
-                
+                    
         }
         .accentColor(.red)
         .environmentObject(navigationArgs)

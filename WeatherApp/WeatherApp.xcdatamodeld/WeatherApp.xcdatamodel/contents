@@ -5,10 +5,11 @@
     </entity>
     <entity name="LocationHistory" representedClassName="LocationHistory" syncable="YES" codeGenerationType="class">
         <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="temperature" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-        <element name="LocationHistory" positionX="-63" positionY="-9" width="128" height="59"/>
+        <element name="LocationHistory" positionX="-63" positionY="-9" width="128" height="74"/>
     </elements>
 </model>

@@ -12,4 +12,5 @@ struct CityWeatherResponse : Hashable, Identifiable, Codable {
     var name : String
     var weather : [Weather]
     var main : Main
+    var coord : Coords
 }

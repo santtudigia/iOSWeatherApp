@@ -7,20 +7,27 @@
 
 import SwiftUI
 import CoreData
+import CoreLocation
 
 struct WeatherView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var navigationArgs : NavigationArgs
     
+    @StateObject var locationManager = LocationModel()
     @State private var weatherResponse : CityWeatherResponse? = nil
     @State private var errorMessage : String? = nil
-    
+
     var search : String = ""
     
     @State private var location : String = ""
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            Text("Current weather")
+                .font(.title)
+                .padding(.bottom)
+
+            
             HStack {
                 TextField("Location", text: $location)
                 Spacer()
@@ -34,13 +41,36 @@ struct WeatherView: View {
                     Image(systemName: "magnifyingglass")
                         .foregroundColor(Color.red)
                 }
+                
+                Button(action: {
+                    fetchWeatherByCoordinates()
+                }) {
+                    Image(systemName: "location.circle.fill")
+                        .foregroundColor(Color.red)
+                }
+                
             }
         
             Divider()
+            
             Spacer()
             
             if weatherResponse != nil {
                 WeatherCard(cityWeatherResponse: weatherResponse!)
+                
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Coordinates")
+                            .font(.headline)
+                        
+                        Text("Latitude: \(weatherResponse?.coord.lat ?? 0)")
+                            .font(.caption)
+                        Text("Longitude: \(weatherResponse?.coord.lon ?? 0)")
+                            .font(.caption)
+                    }
+                    Spacer()
+                }.padding(.top)
+                
             } else {
                 if errorMessage != nil {
                     Text(errorMessage!)
@@ -65,7 +95,7 @@ struct WeatherView: View {
             .dispatch(onSuccess: {(successResponse) in
                 weatherResponse = successResponse
                 
-                addToHistory(location: location)
+                addToHistory(weatherResponse: successResponse)
             }, onFailure: { (errorResponse, error) in
                 print(location.formatToAPI())
                 print("Error fetching the weather")
@@ -74,9 +104,31 @@ struct WeatherView: View {
             }) 
     }
     
-    func addToHistory(location : String) {
+    func fetchWeatherByCoordinates() {
+        locationManager.startUpdatingLocation()
+        
+        let lat = locationManager.lastLocation?.coordinate.latitude ?? nil
+        let lon = locationManager.lastLocation?.coordinate.longitude ?? nil
+        
+        if(lat != nil && lon != nil) {
+            CoordinateWeatherRequest(lat: String(lat!), lon : String(lon!), appid: Constants.API_KEY, units: "metric")
+                .dispatch(onSuccess: {(successResponse) in
+                    weatherResponse = successResponse
+                    
+                    addToHistory(weatherResponse: successResponse)
+                }, onFailure: { (errorResponse, error) in
+                    print(location.formatToAPI())
+                    print("Error fetching the weather")
+                    print(error)
+                    errorMessage = "Error"
+                })
+        }
+    }
+    
+    func addToHistory(weatherResponse : CityWeatherResponse) {
         let locationHistory = LocationHistory(context: viewContext)
-        locationHistory.location = location
+        locationHistory.location = weatherResponse.name
+        locationHistory.temperature = weatherResponse.main.temp
         locationHistory.timestamp = Date()
         
         do {
