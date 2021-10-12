@@ -1,0 +1,9 @@
+/* 
+  Infoplist.strings
+  WeatherApp
+
+  Created by Hyvärinen Santtu on 12.10.2021.
+  
+*/
+
+NSLocationWhenInUseUsageDescription = "Sijaintia tarvitaan paikallisten säätietojen hakemiseen sijainnin perusteella";

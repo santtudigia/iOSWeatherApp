@@ -1,0 +1,9 @@
+/* 
+  Infoplist.strings
+  WeatherApp
+
+  Created by Hyvärinen Santtu on 12.10.2021.
+  
+*/
+
+NSLocationWhenInUseUsageDescription = "The location permission is used to fetch the current weather data from your location";

@@ -37,6 +37,7 @@
 		5777CFD12715718B00BB7995 /* CoordinationWeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777CFD02715718B00BB7995 /* CoordinationWeatherRequest.swift */; };
 		5777CFD327157A2D00BB7995 /* WeatherIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777CFD227157A2D00BB7995 /* WeatherIcons.swift */; };
 		5777CFE62715A0C800BB7995 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5777CFE82715A0C800BB7995 /* Localizable.strings */; };
+		5777CFEC2715A2A500BB7995 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5777CFEE2715A2A500BB7995 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		5777CFD227157A2D00BB7995 /* WeatherIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIcons.swift; sourceTree = "<group>"; };
 		5777CFE72715A0C800BB7995 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5777CFE92715A0CA00BB7995 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5777CFED2715A2A500BB7995 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5777CFEF2715A2A600BB7995 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				5777CFE82715A0C800BB7995 /* Localizable.strings */,
+				5777CFEE2715A2A500BB7995 /* InfoPlist.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -365,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57102C8927142BFA0008CCB8 /* Preview Assets.xcassets in Resources */,
+				5777CFEC2715A2A500BB7995 /* InfoPlist.strings in Resources */,
 				5777CFE62715A0C800BB7995 /* Localizable.strings in Resources */,
 				57102C8627142BFA0008CCB8 /* Assets.xcassets in Resources */,
 			);
@@ -458,6 +463,15 @@
 				5777CFE92715A0CA00BB7995 /* fi */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		5777CFEE2715A2A500BB7995 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5777CFED2715A2A500BB7995 /* en */,
+				5777CFEF2715A2A600BB7995 /* fi */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
