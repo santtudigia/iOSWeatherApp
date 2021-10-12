@@ -36,6 +36,7 @@
 		5777CFCF27156FD200BB7995 /* Coords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777CFCE27156FD200BB7995 /* Coords.swift */; };
 		5777CFD12715718B00BB7995 /* CoordinationWeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777CFD02715718B00BB7995 /* CoordinationWeatherRequest.swift */; };
 		5777CFD327157A2D00BB7995 /* WeatherIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777CFD227157A2D00BB7995 /* WeatherIcons.swift */; };
+		5777CFE62715A0C800BB7995 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5777CFE82715A0C800BB7995 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,8 @@
 		5777CFCE27156FD200BB7995 /* Coords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coords.swift; sourceTree = "<group>"; };
 		5777CFD02715718B00BB7995 /* CoordinationWeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinationWeatherRequest.swift; sourceTree = "<group>"; };
 		5777CFD227157A2D00BB7995 /* WeatherIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIcons.swift; sourceTree = "<group>"; };
+		5777CFE72715A0C800BB7995 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5777CFE92715A0CA00BB7995 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +146,7 @@
 		57102C8027142BF70008CCB8 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				5777CFE32715A07000BB7995 /* Resources */,
 				5777CFC627155C1200BB7995 /* Enums */,
 				57102CD5271456E50008CCB8 /* Info.plist */,
 				57102CC727143FFF0008CCB8 /* Extensions */,
@@ -247,6 +251,14 @@
 			path = Requests;
 			sourceTree = "<group>";
 		};
+		5777CFE32715A07000BB7995 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5777CFE82715A0C800BB7995 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -333,6 +345,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fi,
 			);
 			mainGroup = 57102C7527142BF70008CCB8;
 			productRefGroup = 57102C7F27142BF70008CCB8 /* Products */;
@@ -352,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57102C8927142BFA0008CCB8 /* Preview Assets.xcassets in Resources */,
+				5777CFE62715A0C800BB7995 /* Localizable.strings in Resources */,
 				57102C8627142BFA0008CCB8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +449,18 @@
 			targetProxy = 57102C9E27142BFA0008CCB8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5777CFE82715A0C800BB7995 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5777CFE72715A0C800BB7995 /* en */,
+				5777CFE92715A0CA00BB7995 /* fi */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		57102CA527142BFA0008CCB8 /* Debug */ = {
