@@ -7,6 +7,6 @@
 
 import Foundation
 
-class ModelData: ObservableObject {
+class NavigationArgs: ObservableObject {
     @Published var searchLocation = "";
 }

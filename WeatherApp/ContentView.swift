@@ -11,7 +11,7 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
-    @StateObject var modelData = ModelData()
+    @StateObject var navigationArgs = NavigationArgs()
 
     @State private var selection: Tabs = .weather
 
@@ -39,7 +39,7 @@ struct ContentView: View {
                 
         }
         .accentColor(.red)
-        .environmentObject(modelData)
+        .environmentObject(navigationArgs)
         .animation(.easeInOut)
         .transition(.slide)
     }

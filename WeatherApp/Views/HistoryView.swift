@@ -12,7 +12,7 @@ struct HistoryView: View {
     
     @Binding var selection : Tabs
     @Environment(\.managedObjectContext) private var viewContext
-    @EnvironmentObject var modelData : ModelData
+    @EnvironmentObject var navigationArgs : NavigationArgs
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \LocationHistory.timestamp, ascending: false)],
@@ -30,7 +30,7 @@ struct HistoryView: View {
                 }
                 .padding()
                 .onTapGesture {
-                    modelData.searchLocation = history.location!
+                    navigationArgs.searchLocation = history.location!
                     selection = Tabs.weather
                 }
                 
@@ -53,6 +53,6 @@ struct HistoryView_Previews: PreviewProvider {
             \.managedObjectContext,
              PersistenceController.preview.container.viewContext
         )
-        .environmentObject(ModelData())
+        .environmentObject(NavigationArgs())
     }
 }
