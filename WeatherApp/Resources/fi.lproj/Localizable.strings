@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  WeatherApp
+
+  Created by Hyvärinen Santtu on 12.10.2021.
+  
+*/
+
+"current_weather" = "Hae säätietoja";
+"coordinates" = "Koordinaatit";
+"history" = "Historia";
+"weather" = "Sää";
+"location" = "Sijainti";
+"latitude" = "Leveyspiiri";
+"longitude" = "Pituuspiiri";
+"temperature" = "Lämpötila";
+"pressure" = "Paine";
+"humidity" = "Kosteus";

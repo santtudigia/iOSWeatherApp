@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  WeatherApp
+
+  Created by Hyvärinen Santtu on 12.10.2021.
+  
+*/
+
+"current_weather" = "Search for weather information";
+"coordinates" = "Coordinates";
+"history" = "History";
+"weather" = "Weather";
+"location" = "Location";
+"latitude" = "Latitude";
+"longitude" = "Longitude";
+
+"temperature" = "Temperature";
+"pressure" = "Pressure";
+"humidity" = "Humidity";

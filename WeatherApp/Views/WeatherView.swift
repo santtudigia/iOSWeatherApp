@@ -23,13 +23,13 @@ struct WeatherView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Current weather")
+            Text("current_weather".localize())
                 .font(.title)
                 .padding(.bottom)
 
             
             HStack {
-                TextField("Location", text: $location)
+                TextField("location".localize(), text: $location)
                 Spacer()
                 
                 Button(
@@ -60,12 +60,12 @@ struct WeatherView: View {
                 
                 HStack {
                     VStack(alignment: .leading) {
-                        Text("Coordinates")
+                        Text("location".localize())
                             .font(.headline)
                         
-                        Text("Latitude: \(weatherResponse?.coord.lat ?? 0)")
+                        Text("\("latitude".localize()): \(weatherResponse?.coord.lat ?? 0)")
                             .font(.caption)
-                        Text("Longitude: \(weatherResponse?.coord.lon ?? 0)")
+                        Text("\("longitude".localize()): \(weatherResponse?.coord.lon ?? 0)")
                             .font(.caption)
                     }
                     Spacer()

@@ -11,5 +11,9 @@ extension String {
     func formatToAPI() -> String {
         return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
     }
+    
+    func localize() -> String {
+        return NSLocalizedString(self, comment: "")
+    }
 }
 

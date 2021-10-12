@@ -20,14 +20,14 @@ struct ContentView: View {
             WeatherView()
                 .tag(Tabs.weather)
                 .tabItem {
-                    Label("Weather", systemImage: "sun.min")
+                    Label("weather".localize(), systemImage: "sun.min")
                 }
 
 
             HistoryView(selection: $selection)
                 .tag(Tabs.history)
                 .tabItem {
-                    Label("History", systemImage: "clock")
+                    Label("history".localize(), systemImage: "clock")
                 }
                     
         }

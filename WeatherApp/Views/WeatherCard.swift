@@ -22,31 +22,27 @@ struct WeatherCard: View {
             Divider()
             
             HStack {
-                Text("Temperature: ")
+                Text("\("temperature".localize()): ")
                     .font(.subheadline)
                 Spacer()
                 Text("\(cityWeatherResponse.main.temp.formatDigits(digits: 1))°C")
             }
             
             HStack {
-                Text("Pressure: ")
+                Text("\("pressure".localize()): ")
                     .font(.subheadline)
                 Spacer()
                 Text("\(cityWeatherResponse.main.pressure)")
             }
             
             HStack {
-                Text("Humidity: ")
+                Text("\("humidity".localize()): ")
                     .font(.subheadline)
                 Spacer()
                 Text("\(cityWeatherResponse.main.humidity)")
             }
 
             Divider()
-            
-            ForEach(cityWeatherResponse.weather) { weather in
-                    Text(weather.main)
-            }
         }
     }
     
