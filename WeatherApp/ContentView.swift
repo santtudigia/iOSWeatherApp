@@ -11,26 +11,37 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
-    @State private var showingHistory = false
+    @StateObject var modelData = ModelData()
+
+    @State private var selection: Tabs = .weather
 
     var body: some View {
-        NavigationView {
+        TabView(selection: $selection) {
             WeatherView()
-                .navigationTitle("Weather")
+                .tag(Tabs.weather)
+                .tabItem {
+                    Label("Weather", systemImage: "sun.min")
+                }
                 .toolbar {
-                    ToolbarItem {
+                    /*ToolbarItem {
                         Button(action: {
                             showingHistory.toggle()
                         }) {
                             Label("History", systemImage: "clock")
                         }
-                    }
+                    }*/
                 }
-                .sheet(isPresented: $showingHistory) {
-                    HistoryView()
-                        .environment(\.managedObjectContext, self.viewContext)
+            HistoryView(selection: $selection)
+                .tag(Tabs.history)
+                .tabItem {
+                    Label("History", systemImage: "clock")
                 }
+                
         }
+        .accentColor(.red)
+        .environmentObject(modelData)
+        .animation(.easeInOut)
+        .transition(.slide)
     }
 }
 

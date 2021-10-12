@@ -9,7 +9,10 @@ import SwiftUI
 import CoreData
 
 struct HistoryView: View {
+    
+    @Binding var selection : Tabs
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var modelData : ModelData
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \LocationHistory.timestamp, ascending: false)],
@@ -24,7 +27,12 @@ struct HistoryView: View {
                     Text(history.location!)
                     Spacer()
                     Text("\(history.timestamp!, formatter: itemFormatter)")
-                }.padding()
+                }
+                .padding()
+                .onTapGesture {
+                    modelData.searchLocation = history.location!
+                    selection = Tabs.weather
+                }
                 
                 Divider()
             }
@@ -41,9 +49,10 @@ struct HistoryView: View {
 
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView().environment(
+        HistoryView(selection: .constant(.history)).environment(
             \.managedObjectContext,
              PersistenceController.preview.container.viewContext
         )
+        .environmentObject(ModelData())
     }
 }

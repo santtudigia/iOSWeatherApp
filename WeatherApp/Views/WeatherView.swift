@@ -10,9 +10,12 @@ import CoreData
 
 struct WeatherView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var modelData : ModelData
     
     @State private var weatherResponse : CityWeatherResponse? = nil
     @State private var errorMessage : String? = nil
+    
+    var search : String = ""
     
     @State private var location : String = ""
     
@@ -48,6 +51,13 @@ struct WeatherView: View {
         .onTapGesture {
             self.endTextEditing()
         }
+        .onAppear(perform: {
+            if modelData.searchLocation != "" {
+                location = modelData.searchLocation
+                fetchWeather(location: location)
+                modelData.searchLocation = ""
+            }
+        })
     }
     
     func fetchWeather(location : String) {
@@ -84,5 +94,6 @@ struct WeatherView_Previews: PreviewProvider {
                 \.managedObjectContext,
                  PersistenceController.preview.container.viewContext
             )
+            .environmentObject(ModelData())
     }
 }
