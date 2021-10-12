@@ -10,6 +10,9 @@ import CoreData
 import CoreLocation
 
 struct WeatherView: View {
+    
+    @AppStorage("lastLocationSearch") var lastLocationSearch = ""
+    
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var navigationArgs : NavigationArgs
     
@@ -86,6 +89,8 @@ struct WeatherView: View {
                 location = navigationArgs.searchLocation
                 fetchWeather(location: location)
                 navigationArgs.searchLocation = ""
+            } else if lastLocationSearch != "" {
+                fetchWeather(location: lastLocationSearch)
             }
         })
     }
@@ -93,9 +98,7 @@ struct WeatherView: View {
     func fetchWeather(location : String) {
         CityWeatherRequest(q: location, appid: Constants.API_KEY, units: getUnits())
             .dispatch(onSuccess: {(successResponse) in
-                weatherResponse = successResponse
-                
-                addToHistory(weatherResponse: successResponse)
+                handleResponse(cityWeatherResponse: successResponse)
             }, onFailure: { (errorResponse, error) in
                 print(location.formatToAPI())
                 print("Error fetching the weather")
@@ -113,9 +116,7 @@ struct WeatherView: View {
         if(lat != nil && lon != nil) {
             CoordinateWeatherRequest(lat: String(lat!), lon : String(lon!), appid: Constants.API_KEY, units: getUnits())
                 .dispatch(onSuccess: {(successResponse) in
-                    weatherResponse = successResponse
-                    
-                    addToHistory(weatherResponse: successResponse)
+                    handleResponse(cityWeatherResponse: successResponse)
                 }, onFailure: { (errorResponse, error) in
                     print(location.formatToAPI())
                     print("Error fetching the weather")
@@ -132,6 +133,12 @@ struct WeatherView: View {
         }
         
         return Units.metric.rawValue
+    }
+    
+    func handleResponse(cityWeatherResponse : CityWeatherResponse) {
+        weatherResponse = cityWeatherResponse
+        lastLocationSearch = cityWeatherResponse.name
+        addToHistory(weatherResponse: cityWeatherResponse)
     }
     
     func addToHistory(weatherResponse : CityWeatherResponse) {
