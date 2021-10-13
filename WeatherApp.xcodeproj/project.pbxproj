@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5701C2712716B08B00D2A691 /* LocationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5701C2702716B08B00D2A691 /* LocationCard.swift */; };
+		5701C2782716C14200D2A691 /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5701C2772716C14200D2A691 /* LinkButton.swift */; };
 		57102C8227142BF70008CCB8 /* WeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57102C8127142BF70008CCB8 /* WeatherApp.swift */; };
 		57102C8427142BF70008CCB8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57102C8327142BF70008CCB8 /* ContentView.swift */; };
 		57102C8627142BFA0008CCB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57102C8527142BFA0008CCB8 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		5701C2702716B08B00D2A691 /* LocationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCard.swift; sourceTree = "<group>"; };
+		5701C2772716C14200D2A691 /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
 		57102C7E27142BF70008CCB8 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57102C8127142BF70008CCB8 /* WeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApp.swift; sourceTree = "<group>"; };
 		57102C8327142BF70008CCB8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				5777CFF02715A55000BB7995 /* SettingsView.swift */,
+				5701C2772716C14200D2A691 /* LinkButton.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				57102CD2271446FE0008CCB8 /* Constants.swift in Sources */,
 				57102C8427142BF70008CCB8 /* ContentView.swift in Sources */,
 				57102CDB271464850008CCB8 /* ViewExtensions.swift in Sources */,
+				5701C2782716C14200D2A691 /* LinkButton.swift in Sources */,
 				5777CFF12715A55000BB7995 /* SettingsView.swift in Sources */,
 				5777CFC527155ABE00BB7995 /* NavigationArgs.swift in Sources */,
 				57102CBF2714391A0008CCB8 /* WeatherCard.swift in Sources */,

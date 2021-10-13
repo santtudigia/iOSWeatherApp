@@ -25,3 +25,7 @@
 "metric" = "Celsius °C";
 "standard" = "Kelvin K";
 "imperial" = "Fahrenheit °F";
+
+"open_weather" = "Weather API";
+"links" = "Links";
+"github" = "GitHub project";

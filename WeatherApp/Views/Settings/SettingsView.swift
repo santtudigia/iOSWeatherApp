@@ -23,6 +23,13 @@ struct SettingsView: View {
                     }
                 }.pickerStyle(SegmentedPickerStyle())
             }
+            
+            Text("links".localize())
+                .font(.title)
+            
+            LinkButton(titleKey: "open_weather", url: "https://openweathermap.org/api")
+            
+            LinkButton(titleKey: "github", url: "https://github.com/santtudigia/iOSWeatherApp")
         }
     }
     

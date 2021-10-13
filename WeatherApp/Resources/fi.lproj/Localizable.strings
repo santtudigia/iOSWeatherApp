@@ -24,3 +24,7 @@
 "metric" = "Celsius °C";
 "standard" = "Kelvin K";
 "imperial" = "Fahrenheit °F";
+
+"open_weather" = "Sää API";
+"links" = "Linkit";
+"github" = "GitHub-projekti";
