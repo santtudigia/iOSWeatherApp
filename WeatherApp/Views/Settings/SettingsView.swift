@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @AppStorage("units") var units = Units.metric.rawValue
+    static let unitsKey = "units"
+    @AppStorage(unitsKey) var units = Units.metric.rawValue
     
     var body: some View {
         List {
@@ -23,6 +24,19 @@ struct SettingsView: View {
                 }.pickerStyle(SegmentedPickerStyle())
             }
         }
+    }
+    
+    static func getUnits() -> String {
+        let defaults = UserDefaults.standard
+        
+        guard let result = defaults.string(forKey: unitsKey) else {
+            print(Units.metric.rawValue)
+            return Units.metric.rawValue
+        }
+        
+        print(result)
+        
+        return result
     }
 }
 

@@ -54,8 +54,6 @@ struct WeatherCard: View {
             return "questionmark"
         }
         
-        print(weatherIcon!)
-        
         switch(weatherIcon!){
             
             case WeatherIcon.broken_clouds:

@@ -86,7 +86,7 @@ struct WeatherView: View {
     }
     
     func fetchWeather(location : String) {
-        CityWeatherRequest(q: location, appid: Constants.API_KEY, units: getUnits())
+        CityWeatherRequest(q: location, appid: Constants.API_KEY, units: SettingsView.getUnits())
             .dispatch(onSuccess: {(successResponse) in
                 handleResponse(cityWeatherResponse: successResponse)
             }, onFailure: { (errorResponse, error) in
@@ -98,13 +98,13 @@ struct WeatherView: View {
     }
     
     func fetchWeatherByCoordinates() {
-        locationManager.startUpdatingLocation()
+        locationManager.askPermission()
         
         let lat = locationManager.lastLocation?.coordinate.latitude ?? nil
         let lon = locationManager.lastLocation?.coordinate.longitude ?? nil
         
         if(lat != nil && lon != nil) {
-            CoordinateWeatherRequest(lat: String(lat!), lon : String(lon!), appid: Constants.API_KEY, units: getUnits())
+            CoordinateWeatherRequest(lat: String(lat!), lon : String(lon!), appid: Constants.API_KEY, units: SettingsView.getUnits())
                 .dispatch(onSuccess: {(successResponse) in
                     handleResponse(cityWeatherResponse: successResponse)
                 }, onFailure: { (errorResponse, error) in
@@ -114,16 +114,6 @@ struct WeatherView: View {
                     errorMessage = "Error"
                 })
         }
-    }
-    
-    func getUnits() -> String {
-        let defaults = UserDefaults.standard
-        
-        guard let result = defaults.string(forKey: "units") else {
-            return Units.metric.rawValue
-        }
-        
-        return result
     }
     
     func handleResponse(cityWeatherResponse : CityWeatherResponse) {

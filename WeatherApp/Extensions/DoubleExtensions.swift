@@ -34,7 +34,7 @@ extension Double {
             
             return "\(self.formatDigits(digits: 1))\(symbol)"
         } else {
-            return "\(self.formatDigits(digits: 1))"
+            return "\(self.formatDigits(digits: 1)) °C"
         }
     }
 }

@@ -18,11 +18,12 @@ class LocationModel: NSObject, ObservableObject {
         super.init()
         self.locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        locationManager.startUpdatingLocation()
     }
     
-    public func startUpdatingLocation() {
+    public func askPermission() {
         self.locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
     }
 }
 
