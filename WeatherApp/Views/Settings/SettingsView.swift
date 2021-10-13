@@ -20,7 +20,7 @@ struct SettingsView: View {
                     ForEach(Units.allCases) { unit in
                         Text(unit.rawValue.localize()).tag(unit)
                     }
-                }
+                }.pickerStyle(SegmentedPickerStyle())
             }
         }
     }

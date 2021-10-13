@@ -60,19 +60,9 @@ struct WeatherView: View {
             
             if weatherResponse != nil {
                 WeatherCard(cityWeatherResponse: weatherResponse!)
-                
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("location".localize())
-                            .font(.headline)
-                        
-                        Text("\("latitude".localize()): \(weatherResponse?.coord.lat ?? 0)")
-                            .font(.caption)
-                        Text("\("longitude".localize()): \(weatherResponse?.coord.lon ?? 0)")
-                            .font(.caption)
-                    }
-                    Spacer()
-                }.padding(.top)
+                    
+                LocationCard(latitude: weatherResponse!.coord.lat, longitude: weatherResponse!.coord.lon)
+                    .padding(.top)
                 
             } else {
                 if errorMessage != nil {
@@ -128,11 +118,12 @@ struct WeatherView: View {
     
     func getUnits() -> String {
         let defaults = UserDefaults.standard
-        if let result = defaults.string(forKey: "units") {
-            return result
+        
+        guard let result = defaults.string(forKey: "units") else {
+            return Units.metric.rawValue
         }
         
-        return Units.metric.rawValue
+        return result
     }
     
     func handleResponse(cityWeatherResponse : CityWeatherResponse) {
