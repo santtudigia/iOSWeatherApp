@@ -42,6 +42,7 @@
 		5777CFEC2715A2A500BB7995 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5777CFEE2715A2A500BB7995 /* InfoPlist.strings */; };
 		5777CFF12715A55000BB7995 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777CFF02715A55000BB7995 /* SettingsView.swift */; };
 		5777CFF32715A5AC00BB7995 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777CFF22715A5AC00BB7995 /* Units.swift */; };
+		57E074B4271EE5CD00542D9C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E074B3271EE5CD00542D9C /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		5777CFEF2715A2A600BB7995 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5777CFF02715A55000BB7995 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5777CFF22715A5AC00BB7995 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
+		57E074B3271EE5CD00542D9C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +235,7 @@
 				5701C26F2716B05000D2A691 /* Settings */,
 				5701C26E2716B03A00D2A691 /* History */,
 				5701C26D2716B01A00D2A691 /* Weather */,
+				57E074B3271EE5CD00542D9C /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				57102CD42714520B0008CCB8 /* WeatherView.swift in Sources */,
 				57102CCE271442CB0008CCB8 /* APIExtensions.swift in Sources */,
 				57102CCC271442650008CCB8 /* CityWeatherRequest.swift in Sources */,
+				57E074B4271EE5CD00542D9C /* MapView.swift in Sources */,
 				57102CD2271446FE0008CCB8 /* Constants.swift in Sources */,
 				57102C8427142BF70008CCB8 /* ContentView.swift in Sources */,
 				57102CDB271464850008CCB8 /* ViewExtensions.swift in Sources */,

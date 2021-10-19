@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 import CoreLocation
+import MapKit
 
 struct WeatherView: View {
     
@@ -19,6 +20,7 @@ struct WeatherView: View {
     @StateObject var locationManager = LocationModel()
     @State private var weatherResponse : CityWeatherResponse? = nil
     @State private var errorMessage : String? = nil
+    @State private var mapRegion = MKCoordinateRegion()
 
     var search : String = ""
     
@@ -56,15 +58,18 @@ struct WeatherView: View {
         
             Divider()
             
-            Spacer()
             
             if weatherResponse != nil {
+                MapView(region: $mapRegion)
+                
                 WeatherCard(cityWeatherResponse: weatherResponse!)
-                    
+                
                 LocationCard(latitude: weatherResponse!.coord.lat, longitude: weatherResponse!.coord.lon)
                     .padding(.top)
                 
             } else {
+                Spacer()
+                
                 if errorMessage != nil {
                     Text(errorMessage!)
                 }
@@ -120,6 +125,8 @@ struct WeatherView: View {
         weatherResponse = cityWeatherResponse
         lastLocationSearch = cityWeatherResponse.name
         addToHistory(weatherResponse: cityWeatherResponse)
+        
+        updateRegion(latitude: cityWeatherResponse.coord.lat, longitude: cityWeatherResponse.coord.lon)
     }
     
     func addToHistory(weatherResponse : CityWeatherResponse) {
@@ -133,6 +140,11 @@ struct WeatherView: View {
         }  catch {
             print("Error saving location history")
         }
+    }
+    
+    
+    private func updateRegion(latitude: Double, longitude: Double) {
+        mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
     }
 }
 
