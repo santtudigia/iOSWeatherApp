@@ -20,20 +20,39 @@ struct FavoriteListView: View {
     private var favorites: FetchedResults<Favorite>
     
     var body: some View {
-        ScrollView {
-            ForEach(favorites) { favorite in
-                Button(action: {
-                    navigationArgs.searchLocation = favorite.name!
-                    selection = Tabs.weather
-
-                }) {
-                    FavoriteRow(favorite: favorite)
-                }
+        
+        VStack(alignment: .leading) {
+            
+            Text("favorites".localize())
                 .padding()
-                
-                Divider()
+                .font(.title)
+            
+            List {
+                ForEach(favorites, id: \.self) { favorite in
+                    Button(action: {
+                        navigationArgs.searchLocation = favorite.name!
+                        selection = Tabs.weather
+
+                    }) {
+                        FavoriteRow(favorite: favorite)
+                    }
+                    .padding()
+                }
+                .onDelete(perform: { index in
+                    
+                    index.forEach({ i in
+                        let favorite = favorites[i]
+                        viewContext.delete(favorite)
+                    })
+                    
+                    do {
+                        try viewContext.save()
+                    } catch {
+                        print("Could not delete")
+                    }
+                })
+                .accentColor(Color.gray)
             }
-            .accentColor(Color.gray)
         }
     }
 }

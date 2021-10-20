@@ -12,6 +12,9 @@ extension String {
         return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
     }
     
+    /*
+     Localizes the string
+     */
     func localize() -> String {
         return NSLocalizedString(self, comment: "")
     }

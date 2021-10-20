@@ -12,8 +12,8 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
+        <element name="Favorite" positionX="-63" positionY="9" width="128" height="44"/>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
         <element name="LocationHistory" positionX="-63" positionY="-9" width="128" height="74"/>
-        <element name="Favorite" positionX="-63" positionY="9" width="128" height="44"/>
     </elements>
 </model>
