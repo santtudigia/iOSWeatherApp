@@ -10,6 +10,7 @@
 "coordinates" = "Koordinaatit";
 "history" = "Historia";
 "weather" = "Sää";
+"favorites" = "Suosikit";
 "location" = "Sijainti";
 "latitude" = "Leveyspiiri";
 "longitude" = "Pituuspiiri";

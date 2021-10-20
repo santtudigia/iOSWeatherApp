@@ -1,34 +1,33 @@
 //
-//  HistoryView.swift
+//  FavoriteListScreen.swift
 //  WeatherApp
 //
-//  Created by Hyvärinen Santtu on 11.10.2021.
+//  Created by Hyvärinen Santtu on 20.10.2021.
 //
 
 import SwiftUI
-import CoreData
 
-struct HistoryView: View {
+struct FavoriteListView: View {
     
     @Binding var selection : Tabs
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var navigationArgs : NavigationArgs
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \LocationHistory.timestamp, ascending: false)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Favorite.name, ascending: false)],
         animation: .default)
     
-    private var locationHistory: FetchedResults<LocationHistory>
+    private var favorites: FetchedResults<Favorite>
     
     var body: some View {
         ScrollView {
-            ForEach(locationHistory) { history in
+            ForEach(favorites) { favorite in
                 Button(action: {
-                    navigationArgs.searchLocation = history.location!
+                    navigationArgs.searchLocation = favorite.name!
                     selection = Tabs.weather
 
                 }) {
-                    HistoryRow(history: history)
+                    FavoriteRow(favorite: favorite)
                 }
                 .padding()
                 
@@ -39,9 +38,9 @@ struct HistoryView: View {
     }
 }
 
-struct HistoryView_Previews: PreviewProvider {
+struct FavoriteListView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView(selection: .constant(.history)).environment(
+        FavoriteListView(selection: .constant(.history)).environment(
             \.managedObjectContext,
              PersistenceController.preview.container.viewContext
         )

@@ -11,4 +11,5 @@ enum Tabs {
     case weather
     case history
     case settings
+    case favorites
 }

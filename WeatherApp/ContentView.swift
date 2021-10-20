@@ -23,7 +23,12 @@ struct ContentView: View {
                     Label("weather".localize(), systemImage: "sun.min")
                 }
 
-
+            FavoriteListView(selection: $selection)
+                .tag(Tabs.favorites)
+                .tabItem {
+                    Label("favorites".localize(), systemImage: "star.fill")
+                }
+            
             HistoryView(selection: $selection)
                 .tag(Tabs.history)
                 .tabItem {

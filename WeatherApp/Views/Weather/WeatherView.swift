@@ -21,10 +21,16 @@ struct WeatherView: View {
     @State private var weatherResponse : CityWeatherResponse? = nil
     @State private var errorMessage : String? = nil
     @State private var mapRegion = MKCoordinateRegion()
-
+    
     var search : String = ""
     
     @State private var location : String = ""
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Favorite.name, ascending: false)],
+        animation: .default)
+    
+    private var favorites: FetchedResults<Favorite>
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -62,7 +68,11 @@ struct WeatherView: View {
             if weatherResponse != nil {
                 MapView(region: $mapRegion)
                 
-                WeatherCard(cityWeatherResponse: weatherResponse!)
+                WeatherCard(cityWeatherResponse: weatherResponse!,
+                            isFavorite: isLocationFavorite(location: weatherResponse!.name), favoriteButtonClicked: {
+                    favoriteLocation(location: weatherResponse!.name)
+                }
+                )
                 
                 LocationCard(latitude: weatherResponse!.coord.lat, longitude: weatherResponse!.coord.lon)
                     .padding(.top)
@@ -132,7 +142,7 @@ struct WeatherView: View {
     func addToHistory(weatherResponse : CityWeatherResponse) {
         let locationHistory = LocationHistory(context: viewContext)
         locationHistory.location = weatherResponse.name
-        locationHistory.temperature = weatherResponse.main.temp
+        locationHistory.temperature = weatherResponse.main.temp.toTemperature()
         locationHistory.timestamp = Date()
         
         do {
@@ -142,7 +152,36 @@ struct WeatherView: View {
         }
     }
     
-    
+    private func favoriteLocation(location : String) {
+        
+        if !isLocationFavorite(location: location) {
+            //Add favorite
+            let favorite = Favorite(context: viewContext)
+            favorite.name = location
+        } else {
+            //Remove favorite
+            guard let favorite = favorites.first(where: { favorite in
+                favorite.name == location
+            }) else {
+                return
+            }
+            
+            viewContext.delete(favorite)
+        }
+        
+        do {
+            try viewContext.save()
+        }  catch {
+            print("Error updating favorites")
+        }
+    }
+
+    private func isLocationFavorite(location : String) -> Bool {
+        return favorites.contains(where: {
+            $0.name == weatherResponse!.name
+        })
+    }
+
     private func updateRegion(latitude: Double, longitude: Double) {
         mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
     }

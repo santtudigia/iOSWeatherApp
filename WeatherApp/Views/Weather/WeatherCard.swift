@@ -9,6 +9,8 @@ import SwiftUI
 
 struct WeatherCard: View {
     var cityWeatherResponse : CityWeatherResponse
+    var isFavorite : Bool
+    var favoriteButtonClicked : () -> Void
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -17,6 +19,12 @@ struct WeatherCard: View {
                     
                 Text(cityWeatherResponse.name)
                     .font(.title)
+                
+                Spacer()
+                
+                Button(action: favoriteButtonClicked) {
+                    Image(systemName: isFavorite ? "star.fill" : "star")
+                }
             }
             
             Divider()
@@ -109,6 +117,6 @@ struct WeatherCard_Previews: PreviewProvider {
         )
     )
     static var previews: some View {
-        WeatherCard(cityWeatherResponse: cityWeatherResponse)
+        WeatherCard(cityWeatherResponse: cityWeatherResponse, isFavorite: true, favoriteButtonClicked: {})
     }
 }
