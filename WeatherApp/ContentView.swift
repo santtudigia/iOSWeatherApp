@@ -15,6 +15,7 @@ struct ContentView: View {
 
     @State private var selection: Tabs = .weather
 
+    
     var body: some View {
         TabView(selection: $selection) {
             WeatherView()
@@ -46,6 +47,9 @@ struct ContentView: View {
         .environmentObject(navigationArgs)
         .animation(.easeInOut)
         .transition(.slide)
+        .onAppear {
+            UITabBar.appearance().isTranslucent = false
+        }
     }
 }
 

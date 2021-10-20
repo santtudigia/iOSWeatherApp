@@ -21,20 +21,25 @@ struct HistoryView: View {
     private var locationHistory: FetchedResults<LocationHistory>
     
     var body: some View {
-        ScrollView {
-            ForEach(locationHistory) { history in
-                Button(action: {
-                    navigationArgs.searchLocation = history.location!
-                    selection = Tabs.weather
-
-                }) {
-                    HistoryRow(history: history)
-                }
+        VStack(alignment: .leading) {
+            
+            Text("history".localize())
                 .padding()
-                
-                Divider()
+                .font(.title)
+            
+            List {
+                ForEach(locationHistory, id: \.timestamp) { history in
+                    Button(action: {
+                        navigationArgs.searchLocation = history.location!
+                        selection = Tabs.weather
+
+                    }) {
+                        HistoryRow(history: history)
+                    }
+                    .padding()
+                }
+                .accentColor(Color.gray)
             }
-            .accentColor(Color.gray)
         }
     }
 }
