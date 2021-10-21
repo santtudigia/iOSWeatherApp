@@ -13,24 +13,32 @@ struct SettingsView: View {
     @AppStorage(unitsKey) var units = Units.metric.rawValue
     
     var body: some View {
-        List {
-            VStack(alignment: .leading) {
-                Text("units".localize())
-                    .font(.headline)
-                Picker("units".localize(), selection: $units) {
-                    ForEach(Units.allCases) { unit in
-                        Text(unit.rawValue.localize()).tag(unit)
-                    }
-                }.pickerStyle(SegmentedPickerStyle())
+            
+            List {
+                VStack(alignment: .leading) {
+                    Text("units".localize())
+                        .font(.headline)
+                    Picker("units".localize(), selection: $units) {
+                        ForEach(Units.allCases) { unit in
+                            Text(unit.rawValue.localize()).tag(unit)
+                        }
+                    }.pickerStyle(SegmentedPickerStyle())
+                }
+                
+                Text("links".localize())
+                    .font(.title)
+                
+                NavigationLink(destination: WebView(request: URLRequest(url: URL(string: "https://openweathermap.org/api")!))) {
+                    LinkButton(titleKey: "open_weather", url: "https://openweathermap.org/api")
+                }
+                
+                NavigationLink(destination: WebView(request: URLRequest(url: URL(string: "https://github.com/santtudigia/iOSWeatherApp")!))) {
+                    LinkButton(titleKey: "github", url: "https://github.com/santtudigia/iOSWeatherApp")
+                }
+                
             }
-            
-            Text("links".localize())
-                .font(.title)
-            
-            LinkButton(titleKey: "open_weather", url: "https://openweathermap.org/api")
-            
-            LinkButton(titleKey: "github", url: "https://github.com/santtudigia/iOSWeatherApp")
-        }
+            .listStyle(InsetListStyle())
+        
     }
     
     static func getUnits() -> String {

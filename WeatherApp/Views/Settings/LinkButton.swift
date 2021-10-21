@@ -13,7 +13,7 @@ struct LinkButton: View {
     
     var body: some View {
         Button(action: {
-            openLink(link: url)
+            //openLink(link: url)
         }) {
             VStack(alignment: .leading) {
                 Text(titleKey.localize())

@@ -12,4 +12,5 @@ enum Tabs {
     case history
     case settings
     case favorites
+    case website
 }

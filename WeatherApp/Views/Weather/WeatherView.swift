@@ -35,11 +35,7 @@ struct WeatherView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("current_weather".localize())
-                .font(.title)
-                .padding(.bottom)
 
-            
             HStack {
                 TextField("location".localize(), text: $location)
                 Spacer()

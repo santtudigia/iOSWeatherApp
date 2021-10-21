@@ -17,39 +17,60 @@ struct ContentView: View {
 
     
     var body: some View {
-        TabView(selection: $selection) {
-            WeatherView()
-                .tag(Tabs.weather)
-                .tabItem {
-                    Label("weather".localize(), systemImage: "sun.min")
-                }
+        
+        NavigationView {
+            TabView(selection: $selection) {
+                WeatherView()
+                    .tag(Tabs.weather)
+                    .tabItem {
+                        Label("weather".localize(), systemImage: "sun.min")
+                    }
 
-            FavoriteListView(selection: $selection)
-                .tag(Tabs.favorites)
-                .tabItem {
-                    Label("favorites".localize(), systemImage: "star.fill")
-                }
-            
-            HistoryView(selection: $selection)
-                .tag(Tabs.history)
-                .tabItem {
-                    Label("history".localize(), systemImage: "clock")
-                }
-            
-            SettingsView()
-                .tag(Tabs.settings)
-                .tabItem {
-                    Label("settings".localize(), systemImage: "gear")
-                }
-                    
+                FavoriteListView(selection: $selection)
+                    .tag(Tabs.favorites)
+                    .tabItem {
+                        Label("favorites".localize(), systemImage: "star.fill")
+                    }
+
+                
+                HistoryView(selection: $selection)
+                    .tag(Tabs.history)
+                    .tabItem {
+                        Label("history".localize(), systemImage: "clock")
+                    }
+
+                SettingsView()
+                    .tag(Tabs.settings)
+                    .tabItem {
+                        Label("settings".localize(), systemImage: "gear")
+                    }
+                        
+            }
+            .navigationTitle(getNavigationTitle())
+            .accentColor(.red)
+            .environmentObject(navigationArgs)
+            .animation(.easeInOut)
+            .transition(.slide)
+            .onAppear {
+                UITabBar.appearance().isTranslucent = false
+            }
         }
-        .accentColor(.red)
-        .environmentObject(navigationArgs)
-        .animation(.easeInOut)
-        .transition(.slide)
-        .onAppear {
-            UITabBar.appearance().isTranslucent = false
+    }
+    
+    private func getNavigationTitle() -> String {
+        switch(selection) {
+            case Tabs.weather:
+                return "weather".localize()
+            case Tabs.favorites:
+                return "favorites".localize()
+            case Tabs.history:
+                return "history".localize()
+            case Tabs.settings:
+                return "settings".localize()
+            default:
+                return ""
         }
+
     }
 }
 

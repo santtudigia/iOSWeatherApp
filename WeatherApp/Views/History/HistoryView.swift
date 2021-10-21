@@ -22,11 +22,7 @@ struct HistoryView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            
-            Text("history".localize())
-                .padding()
-                .font(.title)
-            
+
             List {
                 ForEach(locationHistory, id: \.timestamp) { history in
                     Button(action: {

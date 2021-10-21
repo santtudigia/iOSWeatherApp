@@ -22,11 +22,7 @@ struct FavoriteListView: View {
     var body: some View {
         
         VStack(alignment: .leading) {
-            
-            Text("favorites".localize())
-                .padding()
-                .font(.title)
-            
+
             List {
                 ForEach(favorites, id: \.self) { favorite in
                     Button(action: {
@@ -53,6 +49,7 @@ struct FavoriteListView: View {
                 })
                 .accentColor(Color.gray)
             }
+            .listStyle(GroupedListStyle())
         }
     }
 }
