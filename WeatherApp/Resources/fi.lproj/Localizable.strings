@@ -17,6 +17,7 @@
 "temperature" = "Lämpötila";
 "pressure" = "Paine";
 "humidity" = "Kosteus";
+"view_forecast" = "Katso ennuste";
 
 //Settings
 "units" = "Lämpötilan mittayksikkö";

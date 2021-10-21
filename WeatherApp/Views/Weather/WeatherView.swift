@@ -21,6 +21,7 @@ struct WeatherView: View {
     @State private var weatherResponse : CityWeatherResponse? = nil
     @State private var errorMessage : String? = nil
     @State private var mapRegion = MKCoordinateRegion()
+    @State private var isForecastSheetPresented = false
     
     var search : String = ""
     
@@ -77,6 +78,13 @@ struct WeatherView: View {
                 LocationCard(latitude: weatherResponse!.coord.lat, longitude: weatherResponse!.coord.lon)
                     .padding(.top)
                 
+                Button(action: {
+                    isForecastSheetPresented = true
+                }) {
+                    Text("view_forecast".localize())
+                        .font(.body)
+                }
+                .padding(.top)
             } else {
                 Spacer()
                 
@@ -98,6 +106,15 @@ struct WeatherView: View {
                 fetchWeather(location: lastLocationSearch)
             }
         })
+        .sheet(isPresented: $isForecastSheetPresented) {
+            if weatherResponse != nil {
+                ForecastView(
+                        location: weatherResponse!.name,
+                        lat: weatherResponse!.coord.lat,
+                        lon: weatherResponse!.coord.lon
+                )
+            }
+        }
     }
     
     func fetchWeather(location : String) {

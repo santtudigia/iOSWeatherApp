@@ -15,7 +15,7 @@ struct WeatherCard: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image(systemName: getWeatherIcon(icon: cityWeatherResponse.weather[0].icon))
+                Image(systemName: cityWeatherResponse.weather[0].icon.asWeatherIcon())
                     
                 Text(cityWeatherResponse.name)
                     .font(.title)
@@ -24,6 +24,7 @@ struct WeatherCard: View {
                 
                 Button(action: favoriteButtonClicked) {
                     Image(systemName: isFavorite ? "star.fill" : "star")
+                        .foregroundColor(isFavorite ? Color.yellow : Color.gray)
                 }
             }
             
@@ -51,45 +52,6 @@ struct WeatherCard: View {
             }
 
             Divider()
-        }
-    }
-    
-    func getWeatherIcon(icon : String) -> String {
-        let result = String(icon.dropLast())
-        let weatherIcon = WeatherIcon(rawValue: result)
-        
-        if(weatherIcon == nil) {
-            return "questionmark"
-        }
-        
-        switch(weatherIcon!){
-            
-            case WeatherIcon.broken_clouds:
-                return "cloud"
-            
-            case WeatherIcon.cloudy:
-                return "cloud"
-            
-            case WeatherIcon.few_clouds:
-                return "cloud.sun"
-            
-            case WeatherIcon.clear:
-                return "sun.min"
-            
-            case WeatherIcon.shower:
-                return "cloud.sun.rain"
-            
-            case WeatherIcon.rain:
-                return "cloud.rain"
-            
-            case WeatherIcon.snow:
-                return "cloud.snow"
-            
-            case WeatherIcon.thunder:
-                return "cloud.bolt.rain"
-            
-            case WeatherIcon.mist:
-                return "cloud.fog"
         }
     }
 }

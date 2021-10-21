@@ -51,6 +51,28 @@ extension CoordinateWeatherRequest : APIEndpoint {
         }
 }
 
+extension OneCallWeatherRequest : APIEndpoint {
+    
+    func endpoint() -> String {
+        return "/data/2.5/onecall"
+    }
+    
+    func params() -> String {
+        return "?lat=\(self.lat)&lon=\(self.lon)&exclude=\(self.exclude)&appid=\(self.appid)&units=\(self.units)"
+    }
+    
+    func dispatch(
+        onSuccess successHandler: @escaping ((_: OneCallResponse) -> Void),
+        onFailure failureHandler: @escaping ((_: APIRequest.ErrorResponse?, _: Error) -> Void)) {
+            
+            APIRequest.get (
+                request: self,
+                onSuccess: successHandler,
+                onError : failureHandler
+            )
+        }
+}
+
 extension APIRequest {
     public static func get<R: Codable & APIEndpoint, T: Codable, E: Codable>(
         request: R,
@@ -107,6 +129,8 @@ extension APIRequest {
         guard let endpointUrl = URL(string: "\(Constants.API_BASE)\(endpoint)\(params)") else {
             return nil
         }
+        
+        print(endpointUrl)
 
         var endpointRequest = URLRequest(url: endpointUrl)
         endpointRequest.addValue("application/json", forHTTPHeaderField: "Accept")
