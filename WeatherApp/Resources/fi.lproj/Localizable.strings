@@ -18,6 +18,8 @@
 "pressure" = "Paine";
 "humidity" = "Kosteus";
 "view_forecast" = "Katso ennuste";
+"daily" = "Päivä";
+"hourly" = "Tunti";
 
 //Settings
 "units" = "Lämpötilan mittayksikkö";

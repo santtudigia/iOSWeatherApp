@@ -8,6 +8,7 @@
 import Foundation
 
 struct OneCallResponse : Hashable, Codable {
-    var current : Forecast
-    var hourly : [Forecast]
+    var current : Forecast?
+    var hourly : [Forecast]?
+    var daily : [DailyForecast]?
 }

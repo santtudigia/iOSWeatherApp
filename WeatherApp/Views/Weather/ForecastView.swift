@@ -34,8 +34,19 @@ struct ForecastView: View {
             
             if oneCallResponse != nil {
                 List {
-                    ForEach(oneCallResponse!.hourly, id: \.self.dt) { forecast in
-                        ForecastCard(forecast: forecast)
+                    if oneCallResponse!.daily != nil {
+                        Text("daily".localize())
+                            .font(.headline)
+                        ForEach(oneCallResponse!.daily!, id: \.self.dt) { forecast in
+                            DailyForecastCard(forecast: forecast)
+                        }
+                    }
+                    if oneCallResponse!.hourly != nil {
+                        Text("hourly".localize())
+                            .font(.headline)
+                        ForEach(oneCallResponse!.hourly!, id: \.self.dt) { forecast in
+                            ForecastCard(forecast: forecast)
+                        }
                     }
                 }
                 
@@ -55,7 +66,7 @@ struct ForecastView: View {
     
 
     func fetchWeatherByCoordinates() {
-        OneCallWeatherRequest(lat: String(lat), lon : String(lon), exclude: "daily,alerts,minutely", appid: Constants.API_KEY, units: SettingsView.getUnits())
+        OneCallWeatherRequest(lat: String(lat), lon : String(lon), exclude: "alerts,minutely", appid: Constants.API_KEY, units: SettingsView.getUnits())
             .dispatch(onSuccess: {(successResponse) in
                 handleResponse(oneCallResponse: successResponse)
             }, onFailure: { (errorResponse, error) in
