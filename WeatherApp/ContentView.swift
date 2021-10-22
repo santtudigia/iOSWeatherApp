@@ -46,13 +46,14 @@ struct ContentView: View {
                     }
                         
             }
-            .navigationTitle(getNavigationTitle())
+            .navigationBarTitle(getNavigationTitle(), displayMode: NavigationBarItem.TitleDisplayMode.inline)
             .accentColor(.red)
             .environmentObject(navigationArgs)
             .animation(.easeInOut)
             .transition(.slide)
             .onAppear {
                 UITabBar.appearance().isTranslucent = false
+                UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBarAppearance()
             }
         }
     }
